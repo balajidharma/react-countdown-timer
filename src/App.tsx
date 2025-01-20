@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
-import CountDownForm from './components/countdown/CountDownForm'
-import CountDown from './components/countdown/CountDown'
+import CountDownForm from './components/countdownredux/CountDownForm'
+import CountDown from './components/countdownredux/CountDown'
+import CountDownNew from './components/countdown/CountDown'
 import { store } from './store'
 import './App.css'
 
@@ -11,6 +12,9 @@ function App() {
         <CountDownForm />
         <CountDown />
       </Provider>
+      <CountDownNew />
+      <CountDownNew />
+      <CountDownNew />
     </>
   )
 }
