@@ -19,8 +19,8 @@ export default function CountDown() {
 
       intervalRef.current = setInterval(() => {
         // Decrement time by 1 second (1000 milliseconds)
-        setTime((prevTime) => Math.max(prevTime - 1000, 0)); // Ensure non-negative time
-      }, 1000);
+        setTime((prevTime) => Math.max(prevTime - 10, 0)); // Ensure non-negative time
+      }, 10);
     } else {
       clearInterval(intervalRef.current);
     }
