@@ -46,22 +46,27 @@ export default function CountDown() {
         <div className="timer-container">
           <div className="timer-box">
             <h1 title="Days">{days}</h1>
+            <span>Days</span>
           </div>
           <span className="colon">:</span>
           <div className="timer-box">
             <h1 title="Hours">{hours}</h1>
+            <span>Hours</span>
           </div>
           <span className="colon">:</span>
           <div className="timer-box">
             <h1 title="Minutes">{minutes}</h1>
+            <span>Minutes</span>
           </div>
           <span className="colon">:</span>
           <div className="timer-box">
             <h1 title="Seconds">{seconds}</h1>
+            <span>Seconds</span>
           </div>
           <span className="colon">:</span>
           <div className="timer-box">
             <h1 title="Milliseconds">{milliseconds}</h1>
+            <span>ms</span>
           </div>
         </div>
       </div>
