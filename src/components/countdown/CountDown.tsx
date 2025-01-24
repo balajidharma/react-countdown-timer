@@ -1,5 +1,7 @@
 import { useState } from "react";
 import CountDownTimer from "./CountDownTimer";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 interface CountdownState {
     name: string;
@@ -39,32 +41,39 @@ export default function CountDown() {
 
     return (
         <>
-            <form>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formValues.name}
-                    onChange={handleChange}
-                    />
-                </div>
-                <div>
-                <label htmlFor="endtime">End Date:</label>
-                <input 
-                    type="datetime-local" 
-                    id="datetime"
-                    name="endtime"
-                    value={formValues.endtime}
-                    onChange={handleChange}
-                />
-                </div>
-            </form>
+        <div className="countdown-container">
+        <Box
+            component="form"
+            sx={{ 
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                borderRadius: 1,
+                p: 2, 
+                border: '1px solid grey'
+            }}
+            noValidate
+            autoComplete="off"
+            >
+            <TextField 
+                label="Name" 
+                variant="outlined"
+                name="name"
+                value={formValues.name}
+                onChange={handleChange}
+            />
+            <TextField 
+                label="End Date"
+                type="datetime-local" 
+                id="datetime"
+                name="endtime"
+                value={formValues.endtime}
+                onChange={handleChange}
+            />
             <div>
-                <h1>{formValues.name}</h1>
+                <h1 className="timer-title">{formValues.name}</h1>
                 <CountDownTimer endtime={formValues.endtime}/>
             </div>
+        </Box>
+        </div>
         </>
     )
 }
