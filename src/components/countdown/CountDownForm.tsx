@@ -1,39 +1,43 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { updateFormField, CountdownState } from "../../features/countdownSlice"; // Import your slice actions
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
-export default function CountDownForm() {
-    const dispatch = useDispatch();
-    const formValues = useSelector((state: RootState) => state.countdown);
+interface CountDownFormProps {
+    formValues: {
+        name: string;
+        endtime: string,
+    },
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const { name, value } = event.target;
-        dispatch(updateFormField({ field: name as keyof CountdownState, value }));
-    }
-
-    return(
-        <form>
-            <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                type="text"
-                id="name"
+export default function CountDownForm({formValues, handleChange}: CountDownFormProps) {
+    return (
+        <>
+        <Box
+            component="form"
+            sx={{ 
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                borderRadius: 1,
+                p: 2
+            }}
+            noValidate
+            autoComplete="off"
+            >
+            <TextField 
+                label="Name" 
+                variant="outlined"
                 name="name"
                 value={formValues.name}
                 onChange={handleChange}
-                />
-            </div>
-            <div>
-            <label htmlFor="endtime">End Date:</label>
-            <input 
+            />
+            <TextField 
+                label="End Date"
                 type="datetime-local" 
                 id="datetime"
                 name="endtime"
                 value={formValues.endtime}
                 onChange={handleChange}
             />
-            </div>
-        </form>
+        </Box>
+        </>
     )
 }

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import CountDownTimer from "./CountDownTimer";
+import CountDownForm from "./CountDownForm";
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 
-interface CountdownState {
+export interface CountdownState {
     name: string;
     endtime: string,
 }
@@ -18,7 +18,6 @@ export default function CountDown() {
         const today = new Date();
         const nextweek = new Date(today);
         nextweek.setDate(today.getDate() + 7);
-        console.log(formatDate(nextweek));
         return formatDate(nextweek);
     }
 
@@ -43,31 +42,15 @@ export default function CountDown() {
         <>
         <div className="countdown-container">
         <Box
-            component="form"
+            component="div"
             sx={{ 
                 '& .MuiTextField-root': { m: 1, width: '25ch' },
                 borderRadius: 1,
                 p: 2, 
                 border: '1px solid grey'
             }}
-            noValidate
-            autoComplete="off"
             >
-            <TextField 
-                label="Name" 
-                variant="outlined"
-                name="name"
-                value={formValues.name}
-                onChange={handleChange}
-            />
-            <TextField 
-                label="End Date"
-                type="datetime-local" 
-                id="datetime"
-                name="endtime"
-                value={formValues.endtime}
-                onChange={handleChange}
-            />
+            <CountDownForm formValues={formValues} handleChange={handleChange} />
             <div>
                 <h1 className="timer-title">{formValues.name}</h1>
                 <CountDownTimer endtime={formValues.endtime}/>

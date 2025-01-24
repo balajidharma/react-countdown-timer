@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 
-export default function CountDownTimer({endtime}) {
-    console.log(endtime);
+interface CountDownTimerProps {
+  endtime: string
+}
+
+export default function CountDownTimer({endtime}: CountDownTimerProps) {
     const [time, setTime] = useState(0);
     const intervalRef = useRef(0);
 

@@ -41,7 +41,7 @@ export default function CountDown() {
 
   return (
     <div>
-      <h1>{formValues.name}</h1>
+      <h1 className="timer-title">{formValues.name}</h1>
       <div className="countdown">
         <div className="timer-container">
           <div className="timer-box">
