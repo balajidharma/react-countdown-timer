@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux'
 import CountDownForm from './components/countdownredux/CountDownForm'
-import CountDown from './components/countdownredux/CountDown'
-import CountDownNew from './components/countdown/CountDown'
+import CountDownRedux from './components/countdownredux/CountDown'
+import CountDown from './components/countdown/CountDown'
 import Box from '@mui/material/Box'
 import { store } from './store'
 import './App.css'
@@ -9,6 +9,8 @@ import './App.css'
 function App() {
   return (
     <>
+      <h2>Countdown</h2>
+      <CountDown />
       <Provider store={store}>
         <h2>Countdown with Redux</h2>
         <div className="countdown-container">
@@ -22,12 +24,10 @@ function App() {
               }}
               >
             <CountDownForm />
-            <CountDown />
+            <CountDownRedux />
           </Box>
         </div>
       </Provider>
-      <h2>Countdown without Redux</h2>
-      <CountDownNew />
     </>
   )
 }
